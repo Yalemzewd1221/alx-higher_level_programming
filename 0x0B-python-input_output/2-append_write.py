@@ -5,4 +5,4 @@
 def append_write(filename="", text=""):
     """Writes a string to a given file"""
     with open(filename, "a") as f:
-        return f.write(text
+        return f.write(text)
