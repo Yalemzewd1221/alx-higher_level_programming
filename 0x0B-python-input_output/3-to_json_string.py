@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Defines a function that writes a string to a file"""
+"""Defines a function that converts an object to a json string"""
+import json
 
 
-def write_file(filename="", text=""):
-    """Writes a string to a given file"""
-    with open(filename, "w") as f:
-        return f.write(text)
+def to_json_string(my_obj):
+    """Converts an object to a json string"""
+    return json.dumps(my_obj)
