@@ -9,3 +9,4 @@ def add_attribute(obj, name, value):
         exec("obj.{} = value".format(name))
     except:
         raise TypeError("can't add new attribute")
+
