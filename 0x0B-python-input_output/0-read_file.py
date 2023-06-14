@@ -1,14 +1,10 @@
 #!/usr/bin/python3
-"""Defines a function that prints n number of lines from a file"""
+"""Defines a function that prints number of lines in a UTF8 text file"""
 
 
-def read_lines(filename="", nb_lines=0):
+def number_of_lines(filename=""):
     with open(filename, "r") as f:
-        if nb_lines <= 0:
-            print(f.read(), end="")
-        else:
-            for line in f:
-                print(line, end="")
-                nb_lines -= 1
-                if nb_lines == 0:
-                    break
+        lines = 0
+        for line in f:
+            lines += 1
+        return lines
