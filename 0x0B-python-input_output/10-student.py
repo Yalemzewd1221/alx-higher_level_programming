@@ -1,12 +1,28 @@
 #!/usr/bin/python3
-"""Defines a function that returns a class's serializable dict elements"""
+"""Student class"""
 
 
-def class_to_json(obj):
-    """Returns a class's serializable dict elements as a dict"""
-    retdict = {}
-    objdict = obj.__dict__
-    for ele in objdict:
-        if type(objdict[ele]) in [list, dict, str, int, bool]:
-            retdict[ele] = objdict[ele]
-    return retdict
+class Student:
+    """Student class"""
+
+    def __init__(self, first, last, age):
+        self.first_name = first
+        self.last_name = last
+        self.age = age
+
+    def to_json(self, attrs=None):
+        """Returns student's serializable dict elements as a dict"""
+        filterattr = 0
+        if type(attrs) == list:
+            filterattr = 1
+            for x in attrs:
+                if type(x) is not str:
+                    filterattr = 0
+                    break
+        retdict = {}
+        objdict = self.__dict__
+        for ele in objdict:
+            if type(objdict[ele]) in [list, dict, str, int, bool]:
+                if filterattr == 0 or ele in attrs:
+                    retdict[ele] = objdict[ele]
+        return retdict
