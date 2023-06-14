@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Defines a function that appends a string to a file"""
+"""Defines a function that loads an object from a json string"""
+import json
 
 
-def append_write(filename="", text=""):
-    """Writes a string to a given file"""
-    with open(filename, "a") as f:
-        return f.write(text)
+def from_json_string(my_str):
+    """Converts json string to an object"""
+    return json.loads(my_str)
